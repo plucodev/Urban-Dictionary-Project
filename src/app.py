@@ -10,3 +10,17 @@ API_HOST = os.getenv("API_HOST")
 API_KEY = os.getenv("API_KEY")
 
 # continue with your application here
+import requests
+
+url = "https://mashape-community-urban-dictionary.p.rapidapi.com/define"
+
+querystring = {"term":"wat"}
+
+headers = {
+    'x-rapidapi-host': API_HOST,
+    'x-rapidapi-key': API_KEY
+    }
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+
+print(response.text)
